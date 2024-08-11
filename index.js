@@ -8,18 +8,18 @@ const port = 3000;
 const API_URL = "http://www.omdbapi.com/";
 const yourAPIKey = "75d3503a";
 
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "movies project",
-  password: "MyDB",
-  port: 5432,
-});
-// const { Pool } = pg;
-
-// const db = new Pool({
-//   connectionString: "postgres://postgres:MyDB@localhost:5432/movies project",
+// const db = new pg.Client({
+//   user: "postgres",
+//   host: "localhost",
+//   database: "movies project",
+//   password: "MyDB",
+//   port: 5432,
 // });
+const { Pool } = pg;
+
+const db = new Pool({
+  connectionString: "postgresql://movies_uq5t_user:zRav3FUUAJ6jRJUsZ7yBB7uHXcrujd8J@dpg-cqsbes0gph6c73a96bug-a.oregon-postgres.render.com/movies_uq5t",
+});
 
 db.connect();
 
