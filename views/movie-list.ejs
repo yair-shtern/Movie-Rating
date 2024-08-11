@@ -5,24 +5,26 @@
             <h1 class="mb-4">Select a Movie</h1>
             <div class="row">
                 <% movies.forEach(function(movie) { %>
-                    <div class="col-md-3 mb-4">
-                        <div class="card h-100 d-flex flex-column">
-                            <a href="/select/<%= movie.imdbID %>">
-                                <img src="<%= movie.Poster %>" class="card-img-top" alt="<%= movie.Title %>">
-                            </a>
-                            <div class="card-body flex-grow-1">
-                                <h5 class="card-title">
-                                    <%= movie.Title %> (<%= movie.Year %>)
-                                </h5>
-                            </div>
-                            <div class="card-footer mt-auto border-0">
-                                <a href="/select/<%= movie.imdbID %>" class="btn btn-primary w-100">Select</a>
-                            </div>
+                    <% if (movie.Poster !="N/A" ) { %>
 
+                        <div class="col-md-3 mb-4">
+                            <div class="card h-100 d-flex flex-column">
+                                <a href="/select/<%= movie.imdbID %>">
+                                    <img src="<%= movie.Poster %>" class="card-img-top" alt="<%= movie.Title %>">
+                                </a>
+                                <div class="card-body flex-grow-1">
+                                    <h5 class="card-title">
+                                        <%= movie.Title %> (<%= movie.Year %>)
+                                    </h5>
+                                </div>
+                                <div class="card-footer mt-auto border-0">
+                                    <a href="/select/<%= movie.imdbID %>" class="btn btn-primary w-100">Select</a>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
 
-                    <% }); %>
+                        <% }}); %>
             </div>
             <% } else { %>
                 <h1 class="mb-4">No Movies Found</h1>
