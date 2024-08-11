@@ -3,17 +3,20 @@
     <div class="col-8 mb-3 mb-md-0">
       <h1 class="text-center text-md-start">Top Rated Movies</h1>
     </div>
-    <div class="col-4">
-      <form id="sortForm" method="POST" action="/sort">
-        <div class="small d-flex align-items-center justify-content-end">
-          <label for="sortBy" class="form-label me-2 mb-0 text-nowrap">Sort By:</label>
-          <select id="sortBy" name="sortBy" class="form-select form-select-sm" onchange="this.form.submit()">
-            <option value="title" <%=sortBy==='title' ? 'selected' : '' %>>Title</option>
-            <option value="rating" <%=sortBy==='rating' ? 'selected' : '' %>>Rating</option>
-          </select>
-        </div>
-      </form>
-    </div>
+
+    <% if(locals.sortBy){ %>
+      <div class="col-4">
+        <form id="sortForm" method="POST" action="/sort">
+          <div class="small d-flex align-items-center justify-content-end">
+            <label for="sortBy" class="form-label me-2 mb-0 text-nowrap">Sort By:</label>
+            <select id="sortBy" name="sortBy" class="form-select form-select-sm" onchange="this.form.submit()">
+              <option value="title" <%=sortBy==='title' ? 'selected' : '' %>>Title</option>
+              <option value="rating" <%=sortBy==='rating' ? 'selected' : '' %>>Rating</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <% } %>
   </div>
 
   <!-- Display error message if available -->
