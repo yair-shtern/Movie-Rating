@@ -15,11 +15,19 @@ const yourAPIKey = "75d3503a";
 //   password: "MyDB",
 //   port: 5432,
 // });
-const { Pool } = pg;
 
-const db = new Pool({
-  connectionString: "postgresql://movies_uq5t_user:zRav3FUUAJ6jRJUsZ7yBB7uHXcrujd8J@dpg-cqsbes0gph6c73a96bug-a.oregon-postgres.render.com/movies_uq5t",
+const db = new pg.Client({
+  user: "movies_uq5t_user",
+  host: "dpg-cqsbes0gph6c73a96bug-a",
+  database: "movies_uq5t",
+  password: "zRav3FUUAJ6jRJUsZ7yBB7uHXcrujd8J",
+  port: 5432,
 });
+// const { Pool } = pg;
+
+// const db = new Pool({
+//   connectionString: "postgres://postgres:MyDB@localhost:5432/movies project",
+// });
 
 db.connect();
 
