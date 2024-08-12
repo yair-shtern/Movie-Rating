@@ -2,18 +2,21 @@ import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
 import pg from "pg";
+import env from "dotenv";
+
 
 const app = express();
 const port = 3000;
 const API_URL = "http://www.omdbapi.com/";
-const yourAPIKey = "75d3503a";
+const yourAPIKey = process.env.API_KEY;
+env.config();
 
 const db = new pg.Client({
-  user: "movies_uq5t_user",
-  host: "dpg-cqsbes0gph6c73a96bug-a",
-  database: "movies_uq5t",
-  password: "zRav3FUUAJ6jRJUsZ7yBB7uHXcrujd8J",
-  port: 5432,
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
 });
 
 db.connect();
