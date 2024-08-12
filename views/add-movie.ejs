@@ -3,10 +3,10 @@
     <% if (data && data.Title) { %>
         <h1 class="mb-4">Add New Movie</h1>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 text-center text-md-start">
                 <img src="<%= data.Poster %>" class="img-fluid rounded" alt="<%= data.Title %>">
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 text-center text-md-start">
                 <h2>
                     <%= data.Title %> (<%= data.Year %>)
                 </h2>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <% } else { %>
-            <h1 class="mb-4">Movie Not Found</h1>
+            <h1 class="mb-4 text-center text-md-start">Movie Not Found</h1>
             <p>Sorry, the movie you're looking for could not be found. Please try searching for a different title.</p>
             <a href="/" class="btn btn-secondary">Go Back</a>
             <% } %>
