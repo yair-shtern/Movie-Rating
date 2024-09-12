@@ -1,2 +1,2 @@
 # Movie-Rating
-https://movie-rating-tu5r.onrender.com/
+https://movie-rating-fff9.onrender.com/
