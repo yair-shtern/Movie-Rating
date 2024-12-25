@@ -49,7 +49,7 @@ const createTable = async () => {
 };
 
 // Call the createTable function after connecting to the DB
-createTable();
+// createTable();
 
 app.get("/", async (req, res) => {
   try {
