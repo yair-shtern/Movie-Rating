@@ -27,17 +27,29 @@ app.use(express.static("public"));
 
 let movies = [];
 var sortBy = "rating";
-await db.query("  CREATE TABLE movies (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    year VARCHAR(10),
-    genre VARCHAR(255),
-    writer VARCHAR(255),
-    plot TEXT,
-    poster VARCHAR(255) NOT NULL,
-    rating DECIMAL(3, 1) NOT NULL,
-    imdbID VARCHAR(15) NOT NULL UNIQUE
-  );");
+const createTable = async () => {
+  try {
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS movies (
+        id SERIAL PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        year VARCHAR(10),
+        genre VARCHAR(255),
+        writer VARCHAR(255),
+        plot TEXT,
+        poster VARCHAR(255) NOT NULL,
+        rating DECIMAL(3, 1) NOT NULL,
+        imdbID VARCHAR(15) NOT NULL UNIQUE
+      );
+    `);
+    console.log('Movies table created successfully.');
+  } catch (err) {
+    console.error('Error creating table:', err);
+  }
+};
+
+// Call the createTable function after connecting to the DB
+createTable();
 
 app.get("/", async (req, res) => {
   try {
